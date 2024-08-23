@@ -1,0 +1,208 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap demo</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.datatables.net/2.1.4/css/dataTables.dataTables.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Jersey+10&display=swap" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"
+        integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy"
+        crossorigin="anonymous"></script>
+    <style>
+        body {
+            background: rgb(233, 234, 237);
+            margin: 0px;
+            padding: 0px;
+            height: 100vh;
+            font-family: "Roboto", sans-serif;
+            font-weight: 400;
+            font-style: normal;
+        }
+
+        .jersey-10-regular {
+            font-family: "Jersey 10", sans-serif;
+            font-weight: 400;
+            font-style: normal;
+        }
+
+        .orange {
+            color: orange;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg bg-light fixed-top shadow">
+        <div class="container-fluid">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0 d-flex">
+                    <li class="nav-item">
+                        <a class="nav-link text-black-50" aria-current="page" href="#">HOME</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-black-50" aria-current="page" href="#">PRODUCT</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-black-50" aria-current="page" href="#">GALLERY</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-black-50" aria-current="page" href="#">BLOG</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-black-50" aria-current="page" href="#"> MY INVENTORY</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div style="margin-top: 50px;">
+        <br>
+    </div>
+
+    <div class='container p-0 mt-2'>
+        <div class='card position-relative p-3'>
+            <div class='row g-0 d-flex align-items-center'>
+
+                <div class='col-md-3 col-lg-2 text-md-center p-2'>
+                    <div class='text-center'>
+                        <img src="images.jpg" class="img-fluid rounded-circle" alt="Profile Image"
+                            style="width:150px; height:150px;">
+                    </div>
+                </div>
+
+                <div class='col-md-3 text-center text-md-start p-3'>
+                    <h5 class="mt-3" id="data-nama">Klaudius Waditra</h5>
+                    <p class="text-muted" id="data-role">CEO</p>
+                    <div class="w-100 d-lg-flex">
+                        <div>
+                            <a href="#" class="btn btn-primary me-lg-2 mb-2">Kontak</a>
+                        </div>
+                        <div>
+                            <a href="#" class="btn btn-outline-success">Resume</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class='vr d-none d-md-block mx-3'></div>
+                <div class="col-md-4">
+                    <div class="card-body">
+                        <ul class="list-unstyled">
+                            <li class="mb-2">
+                                <strong>Availability:</strong> <span id="data-availability">Availability</span>
+                            </li>
+                            <li class="mb-2">
+                                <strong>Usia:</strong> <span id="data-age">Usia</span>
+                            </li>
+                            <li class="mb-2">
+                                <strong>Lokasi:</strong> <span id="data-lokasi">Lokasi</span>
+                            </li>
+                            <li class="mb-2">
+                                <strong>Pengalaman:</strong> <span id="data-pengalaman">Pengalaman</span>
+                            </li>
+                            <li class="mb-2">
+                                <strong>Email:</strong> <span id="data-email">Email</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container my-2 form-control p-3 border-0 shadow-sm">
+        <div class="form-floating mb-3">
+            <input type="text" class="form-control" id="nama" placeholder="Masukkan nama anda">
+            <label for="nama">Nama</label>
+        </div>
+        <div class="input-group mb-3">
+            <select class="form-select" id="role">
+                <option selected disabled>Role</option>
+                <option value="Front End">Front End</option>
+                <option value="Back End">Back End</option>
+                <option value="QC / QA">QC / QA</option>
+            </select>
+        </div>
+        <div class="input-group mb-3">
+            <select class="form-select" id="availability">
+                <option selected disabled>Availability</option>
+                <option value="Full Time">Full Time</option>
+                <option value="Part Time">Part Time</option>
+                <option value="Internship">Internship</option>
+            </select>
+        </div>
+        <div class="form-floating">
+            <input type="number" class="form-control" id="usia" placeholder="Usia">
+            <label for="usia">Age</label>
+        </div>
+        <div class="form-floating mt-3">
+            <input type="text" class="form-control" id="lokasi" placeholder="Lokasi">
+            <label for="lokasi">Lokasi</label>
+        </div>
+        <div class="form-floating mt-3">
+            <input type="number" class="form-control" id="pengalaman" placeholder="Pengalaman">
+            <label for="pengalaman">Years Experience</label>
+        </div>
+        <div class="form-floating mt-3">
+            <input type="email" class="form-control" id="email" placeholder="Email">
+            <label for="email">Email</label>
+        </div>
+        <div class="form-floating mt-3">
+            <button id="submit" type="button" class="btn btn-success w-100">SUBMIT</button>
+        </div>
+    </div>
+
+    <div style="margin-top: 50px;">
+        <br>
+    </div>
+</body>
+
+<script>
+    function alertError() {
+        Swal.fire({
+            icon: "error",
+            title: "Oops...",
+            text: "Something went wrong!"
+        });
+    }
+    $(document).ready(function () {
+        $("#submit").click(function () {
+            var inputNama = $("#nama").val();
+            var inputRole = $("#role").val();
+            var inputAvailability = $("#availability").val();
+            var inputUsia = $("#usia").val();
+            var inputLokasi = $("#lokasi").val();
+            var inputPengalaman = $("#pengalaman").val();
+            var inputEmail = $("#email").val();
+
+            if (inputNama == "" || inputRole == "" || inputAvailability == "" || inputUsia == "" || inputLokasi == "" || inputPengalaman == "" || inputEmail == "") {
+                alertError();
+                return
+            }
+
+            $("#data-nama").html(inputNama);
+            $("#data-role").html(inputRole);
+            $("#data-availability").html(inputAvailability);
+            $("#data-age").html(inputUsia);
+            $("#data-lokasi").html(inputLokasi);
+            $("#data-pengalaman").html(inputPengalaman);
+            $("#data-email").html(inputEmail);
+        })
+    })
+
+
+</script>
+
+</html>
